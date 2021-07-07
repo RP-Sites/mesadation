@@ -1,0 +1,46 @@
+* ter um layout para o infantil e juvenil, ou um que agrada ambos
+
+* ANIMAÇÃO PARA LOADING
+
+* deixar o saldo ficar negativo
+
+
+*Perfis*
+
+- Cadastro de perfil filhos (até 5)
+	Add foto ou avatar
+	Nome
+	Data de nascimento (idade)
+	Senha	
+	periodicidade do depósito (diária, semanal, quinzenal ou mensal)
+	valor
+	adicionar valor inicial?
+	algum combinado específico?
+
+
+*Configurações*
+
+- ter a opção de escolher a moeda (real, dollar, euro, pounds)
+- criar combinados gerais
+
+
+*Carteira por filho*
+	Saldo
+	Movimentos (filtrar por período, entrada e saída)
+
+	Funcionalidades:
+	entradas programadas da mesada
+	entrada de bônus (descrição, valor)
+	saídas (descrição, valor)
+	Pedir empréstimo para o responsável ou irmão
+	Emprestão para um irmão
+	
+
+
+*Ideias*
+
+- ter a opção de tempo (minutos e horas) ou pontos
+
+
+
+

@@ -1,0 +1,140 @@
+******** html *********
+
+<!-- teste
+{{ title }}
+
+<hr>
+<ul>
+  <li *ngFor="let animal of animais"> {{ animal.nome }} </li>
+</ul>
+
+<hr>
+<div *ngFor="let pessoa of pessoas">
+  Hobbies de {{pessoa.nome}}:
+  <ul>
+    <li *ngFor="let hobby of pessoa.hobbies">{{hobby.nome}} - {{HobbyRank[hobby.rank]}}</li>
+  </ul>
+</div> -->
+
+
+<!-- <hr>
+<ul>
+  <li *ngFor="let item of items">xxx</li>
+</ul>
+<hr>
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul> -->
+
+
+********* ts *************
+
+
+HobbyRank = HobbyRank;
+
+  title: string = 'mesadation-web-app';
+  items: string[] = ['Ricardo', 'Pedro', 'Raquel'];
+  qualqueres: any[] = [1, true, 'Raquel'];
+  gato: Animal = new Animal('mamifero', 'gato', true);
+  leaozinho: Leao = new Leao(true);
+  animais: Animal[] = [this.gato, this.leaozinho];    
+
+  ricardo: Pessoa = <Pessoa>{
+    nome: 'Ricardo Carvalho',
+    idade: 29,
+    perfil: <Perfil> { 
+      corOlho: 'castanho', 
+      corCabelo: 'preto', 
+      tamanhoNariz: 'medio' 
+    },
+    hobbies: [
+      <Hobby>{nome: 'video game', rank: HobbyRank.Regular},
+      <Hobby>{nome: 'explorar', rank: HobbyRank.MuitoBom},
+      <Hobby>{nome: 'cozinhar', rank: HobbyRank.Ruim},
+    ]
+  };
+
+  andre: Pessoa = <Pessoa>{
+    nome: 'Andre Carvalho',
+    idade: 10,
+    perfil: <Perfil> { 
+      corOlho: 'preto', 
+      corCabelo: 'castanho/loirin', 
+      tamanhoNariz: 'pequeno' 
+    },
+    hobbies: [
+      <Hobby>{nome: 'video game', rank: HobbyRank.MuitoBom},
+      <Hobby>{nome: 'explorar', rank: HobbyRank.MuitoBom},
+      <Hobby>{nome: 'arrumar', rank: HobbyRank.Ruim},
+    ]
+  };
+
+  pessoas: Pessoa[] = [this.ricardo, this.andre];
+}
+
+export interface Pessoa {
+  nome: string;
+  idade: number;
+  perfil: Perfil;
+  hobbies: Hobby[];
+}
+
+export interface Perfil {
+  corOlho: string;
+  corCabelo: string;
+  tamanhoNariz: string;
+}
+
+export interface Hobby {
+  nome: string;
+  rank: HobbyRank;
+}
+
+export enum HobbyRank {
+  MuitoBom,
+  Bom,
+  Regular,
+  Ruim,
+  MuitoRuim
+}
+
+export class Carro {
+  marca: string;
+  velocidadeMax: number = 180;
+  velocidadeMedia?: number;
+
+  constructor(marca: string) {
+    this.marca = marca;
+  }
+}
+
+export class Animal {
+  constructor(
+    private raca: string, 
+    public nome: string, 
+    protected fome: boolean) {
+  }
+
+  protected comer() {
+    this.fome = false;
+  }
+}
+
+export class Mamifero extends Animal {
+  constructor(nome: string, fome: boolean) {
+    super('mamifero', nome, fome);
+  }
+
+  tomarLeite() {
+    this.fome = false;
+  }
+}
+
+export class Leao extends Mamifero {
+  constructor(fome: boolean) {
+    super('leao', fome);
+  }
+
+  comerCarne() {
+    this.fome = false;
+  }

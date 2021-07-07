@@ -7,112 +7,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  HobbyRank = HobbyRank;
+  accounts: any[] = [{id: 1, label: 'Pedro'}, {id: 2, label: 'André'}];
+  types: any[] = [{id: 1, label: 'Mesada'}, {id: 2, label: 'Bonus'}];
 
-  title: string = 'mesadation-web-app';
-  items: string[] = ['Ricardo', 'Pedro', 'Raquel'];
-  qualqueres: any[] = [1, true, 'Raquel'];
-  gato: Animal = new Animal('mamifero', 'gato', true);
-  leaozinho: Leao = new Leao(true);
-  animais: Animal[] = [this.gato, this.leaozinho];    
-
-  ricardo: Pessoa = <Pessoa>{
-    nome: 'Ricardo Carvalho',
-    idade: 29,
-    perfil: <Perfil> { 
-      corOlho: 'castanho', 
-      corCabelo: 'preto', 
-      tamanhoNariz: 'medio' 
-    },
-    hobbies: [
-      <Hobby>{nome: 'video game', rank: HobbyRank.Regular},
-      <Hobby>{nome: 'explorar', rank: HobbyRank.MuitoBom},
-      <Hobby>{nome: 'cozinhar', rank: HobbyRank.Ruim},
-    ]
+  model = {
+    value: 0, 
+    account: 0, 
+    type: 0, 
+    description: ''
   };
 
-  andre: Pessoa = <Pessoa>{
-    nome: 'Andre Carvalho',
-    idade: 10,
-    perfil: <Perfil> { 
-      corOlho: 'preto', 
-      corCabelo: 'castanho/loirin', 
-      tamanhoNariz: 'pequeno' 
-    },
-    hobbies: [
-      <Hobby>{nome: 'video game', rank: HobbyRank.MuitoBom},
-      <Hobby>{nome: 'explorar', rank: HobbyRank.MuitoBom},
-      <Hobby>{nome: 'arrumar', rank: HobbyRank.Ruim},
-    ]
-  };
-
-  pessoas: Pessoa[] = [this.ricardo, this.andre];
+  // credito: {
+  //   valor: number;
+  //   destino: Perfil[];
+  //   tipoEntrada: Entradas[] = ['mesada', 'bonus'];
+  //   descricao: string;
+  // }
 }
 
-export interface Pessoa {
-  nome: string;
-  idade: number;
-  perfil: Perfil;
-  hobbies: Hobby[];
-}
 
-export interface Perfil {
-  corOlho: string;
-  corCabelo: string;
-  tamanhoNariz: string;
-}
-
-export interface Hobby {
-  nome: string;
-  rank: HobbyRank;
-}
-
-export enum HobbyRank {
-  MuitoBom,
-  Bom,
-  Regular,
-  Ruim,
-  MuitoRuim
-}
-
-export class Carro {
-  marca: string;
-  velocidadeMax: number = 180;
-  velocidadeMedia?: number;
-
-  constructor(marca: string) {
-    this.marca = marca;
-  }
-}
-
-export class Animal {
-  constructor(
-    private raca: string, 
-    public nome: string, 
-    protected fome: boolean) {
-  }
-
-  protected comer() {
-    this.fome = false;
-  }
-}
-
-export class Mamifero extends Animal {
-  constructor(nome: string, fome: boolean) {
-    super('mamifero', nome, fome);
-  }
-
-  tomarLeite() {
-    this.fome = false;
-  }
-}
-
-export class Leao extends Mamifero {
-  constructor(fome: boolean) {
-    super('leao', fome);
-  }
-
-  comerCarne() {
-    this.fome = false;
-  }
-}

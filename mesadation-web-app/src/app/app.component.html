@@ -1,24 +1,13 @@
-teste
-{{ title }}
 
-<hr>
-<ul>
-  <li *ngFor="let animal of animais"> {{ animal.nome }} </li>
-</ul>
 
-<hr>
-<div *ngFor="let pessoa of pessoas">
-  Hobbies de {{pessoa.nome}}:
-  <ul>
-    <li *ngFor="let hobby of pessoa.hobbies">{{hobby.nome}} - {{HobbyRank[hobby.rank]}}</li>
-  </ul>
-</div>
+<input [(ngModel)]="model.value" type="number" required>
+<select class="form-control" 
+          required
+          [(ngModel)]="model.account" >
+<option *ngFor="let account of accounts" [value]="account.id">{{account.label}}</option>
+</select>
+<textarea [(ngModel)]="model.description"
+></textarea>  
 
-<!-- <hr>
-<ul>
-  <li *ngFor="let item of items">xxx</li>
-</ul>
-<hr>
-<ul>
-  <li *ngFor="let item of items">{{item}}</li>
-</ul> -->
+{{ model | json }}
+
